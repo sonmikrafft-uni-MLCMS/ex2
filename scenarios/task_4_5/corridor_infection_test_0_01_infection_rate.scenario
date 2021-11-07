@@ -1,5 +1,5 @@
 {
-  "name" : "corridor_infection_test",
+  "name" : "corridor_infection_test_0_01_infection_rate",
   "description" : "",
   "release" : "1.16",
   "processWriters" : {
