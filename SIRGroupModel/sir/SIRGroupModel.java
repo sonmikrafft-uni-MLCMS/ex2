@@ -33,6 +33,8 @@ public class SIRGroupModel extends AbstractGroupModel<SIRGroup> {
 	private Topography topography;
 	private IPotentialFieldTarget potentialFieldTarget;
 	private int totalInfected = 0;
+	private double lastSimTimeInSec = 0;
+	private double simTimeInSecRest = 0;
 
 	public SIRGroupModel() {
 		this.groupsById = new LinkedHashMap<>();
@@ -218,19 +220,29 @@ public class SIRGroupModel extends AbstractGroupModel<SIRGroup> {
 		LinkedCellsGrid<Pedestrian> cellsElements = topography.getSpatialMap(Pedestrian.class);
 
 		if (c.getElements().size() > 0) {
-			for(Pedestrian p : c.getElements()) {
-				// get Pedestrians within a certain radius
-				List<Pedestrian> p_neighbors = cellsElements.getObjects(p.getPosition(), attributesSIRG.getInfectionMaxDistance());
+			// per passed seconds since last call
+			int num_iterations = 1;
+			if (attributesSIRG.getIsInfectionRatePerSecond()) {
+				double delta = simTimeInSec - lastSimTimeInSec + simTimeInSecRest;
+				num_iterations = (int) delta;
+				simTimeInSecRest = delta - (int) delta;
+				lastSimTimeInSec = simTimeInSec;
+			}
+			for (int i = 0; i < num_iterations; i++) {
+				for(Pedestrian p : c.getElements()) {
+					// get Pedestrians within a certain radius
+					List<Pedestrian> p_neighbors = cellsElements.getObjects(p.getPosition(), attributesSIRG.getInfectionMaxDistance());
 
-				// and only loop over neighbor pedestrians
-				for (Pedestrian p_neighbor : p_neighbors) {
-					if (p == p_neighbor || getGroup(p_neighbor).getID() != SIRType.ID_INFECTED.ordinal())
-						continue;
-					if (this.random.nextDouble() < attributesSIRG.getInfectionRate()) {
-						SIRGroup g = getGroup(p);
-						if (g.getID() == SIRType.ID_SUSCEPTIBLE.ordinal()) {
-							elementRemoved(p);
-							assignToGroup(p, SIRType.ID_INFECTED.ordinal());
+					// and only loop over neighbor pedestrians
+					for (Pedestrian p_neighbor : p_neighbors) {
+						if (p == p_neighbor || getGroup(p_neighbor).getID() != SIRType.ID_INFECTED.ordinal())
+							continue;
+						if (this.random.nextDouble() < attributesSIRG.getInfectionRate()) {
+							SIRGroup g = getGroup(p);
+							if (g.getID() == SIRType.ID_SUSCEPTIBLE.ordinal()) {
+								elementRemoved(p);
+								assignToGroup(p, SIRType.ID_INFECTED.ordinal());
+							}
 						}
 					}
 				}
