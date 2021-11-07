@@ -16,6 +16,7 @@ import org.vadere.state.attributes.scenario.AttributesAgent;
 import org.vadere.state.scenario.DynamicElementContainer;
 import org.vadere.state.scenario.Pedestrian;
 import org.vadere.state.scenario.Topography;
+import org.vadere.util.geometry.LinkedCellsGrid;
 
 import java.util.*;
 
@@ -180,6 +181,8 @@ public class SIRGroupModel extends AbstractGroupModel<SIRGroup> {
 	public void postLoop(final double simTimeInSec) {
 	}
 
+/*	OLD IMPLEMENTATION
+
 	@Override
 	public void update(final double simTimeInSec) {
 		// check the positions of all pedestrians and switch groups to INFECTED (or REMOVED).
@@ -194,6 +197,36 @@ public class SIRGroupModel extends AbstractGroupModel<SIRGroup> {
 					double dist = p.getPosition().distance(p_neighbor.getPosition());
 					if (dist < attributesSIRG.getInfectionMaxDistance() &&
 							this.random.nextDouble() < attributesSIRG.getInfectionRate()) {
+						SIRGroup g = getGroup(p);
+						if (g.getID() == SIRType.ID_SUSCEPTIBLE.ordinal()) {
+							elementRemoved(p);
+							assignToGroup(p, SIRType.ID_INFECTED.ordinal());
+						}
+					}
+				}
+			}
+		}
+	}*/
+
+	@Override
+	public void update(final double simTimeInSec) {
+		// check the positions of all pedestrians and switch groups to INFECTED (or REMOVED).
+
+		DynamicElementContainer<Pedestrian> c = topography.getPedestrianDynamicElements();
+
+		// create a LinkedCellsGrid of Pedestrians
+		LinkedCellsGrid<Pedestrian> cellsElements = topography.getSpatialMap(Pedestrian.class);
+
+		if (c.getElements().size() > 0) {
+			for(Pedestrian p : c.getElements()) {
+				// get Pedestrians within a certain radius
+				List<Pedestrian> p_neighbors = cellsElements.getObjects(p.getPosition(), attributesSIRG.getInfectionMaxDistance());
+
+				// and only loop over neighbor pedestrians
+				for (Pedestrian p_neighbor : p_neighbors) {
+					if (p == p_neighbor || getGroup(p_neighbor).getID() != SIRType.ID_INFECTED.ordinal())
+						continue;
+					if (this.random.nextDouble() < attributesSIRG.getInfectionRate()) {
 						SIRGroup g = getGroup(p);
 						if (g.getID() == SIRType.ID_SUSCEPTIBLE.ordinal()) {
 							elementRemoved(p);
