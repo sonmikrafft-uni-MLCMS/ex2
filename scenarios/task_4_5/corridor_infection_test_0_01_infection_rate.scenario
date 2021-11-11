@@ -113,7 +113,7 @@
       "printFPS" : false,
       "digitsPerCoordinate" : 2,
       "useFixedSeed" : true,
-      "fixedSeed" : -1905281678395218827,
+      "fixedSeed" : -1905111678391215837,
       "simulationSeed" : 0
     },
     "attributesPsychology" : {
