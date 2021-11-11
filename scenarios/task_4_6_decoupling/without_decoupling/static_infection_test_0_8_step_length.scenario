@@ -1,5 +1,5 @@
 {
-  "name" : "static_infection_test_0_01_infection_rate",
+  "name" : "static_infection_test_0_8_step_length",
   "description" : "",
   "release" : "1.16",
   "processWriters" : {
