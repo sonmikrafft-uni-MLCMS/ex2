@@ -233,6 +233,17 @@ public class SIRGroupModel extends AbstractGroupModel<SIRGroup> {
 					// get Pedestrians within a certain radius
 					List<Pedestrian> p_neighbors = cellsElements.getObjects(p.getPosition(), attributesSIRG.getInfectionMaxDistance());
 
+					/*
+					decide if pedestrian will recover based on recoveryRate at every time step
+					*/
+					if (this.random.nextDouble() < attributesSIRG.getRecoveryRate()) {
+						SIRGroup g = getGroup(p);
+						if (g.getID() == SIRType.ID_INFECTED.ordinal()) {
+							elementRemoved(p);
+							assignToGroup(p, SIRType.ID_RECOVERED.ordinal());
+						}
+					}
+
 					// and only loop over neighbor pedestrians
 					for (Pedestrian p_neighbor : p_neighbors) {
 						if (p == p_neighbor || getGroup(p_neighbor).getID() != SIRType.ID_INFECTED.ordinal())
