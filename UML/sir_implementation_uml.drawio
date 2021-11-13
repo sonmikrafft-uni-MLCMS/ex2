@@ -81,7 +81,7 @@
                 <mxCell id="40" value="&lt;b&gt;Topography&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;swimlaneLine=0;" parent="1" vertex="1">
                     <mxGeometry x="678" y="447" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="54" value="AbstractGroupModel" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;swimlaneLine=0;" parent="1" vertex="1">
+                <mxCell id="54" value="AbstractGroupModel" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=27;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;swimlaneLine=0;" parent="1" vertex="1">
                     <mxGeometry x="480" y="363" width="160" height="30" as="geometry">
                         <mxRectangle x="254" y="40" width="90" height="26" as="alternateBounds"/>
                     </mxGeometry>
@@ -175,7 +175,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="122" value="&lt;font color=&quot;#ffffff&quot;&gt;topography&lt;/font&gt;" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;fontColor=#FF8000;" parent="1" source="28" target="40" edge="1">
+                <mxCell id="122" value="&lt;font color=&quot;#000000&quot;&gt;topography&lt;/font&gt;" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;fontColor=#FF8000;" parent="1" source="28" target="40" edge="1">
                     <mxGeometry x="-1" y="3" relative="1" as="geometry">
                         <mxPoint x="694.5" y="510" as="sourcePoint"/>
                         <mxPoint x="854.5" y="510" as="targetPoint"/>
@@ -184,7 +184,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="124" value="&lt;font color=&quot;#ffffff&quot;&gt;attributesSIRG&lt;/font&gt;" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;fontColor=#FF8000;" parent="1" source="28" target="6" edge="1">
+                <mxCell id="124" value="&lt;font color=&quot;#000000&quot;&gt;attributesSIRG&lt;/font&gt;" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;fontColor=#FF8000;" parent="1" source="28" target="6" edge="1">
                     <mxGeometry x="-0.5591" y="28" relative="1" as="geometry">
                         <mxPoint x="306" y="470" as="sourcePoint"/>
                         <mxPoint x="466" y="470" as="targetPoint"/>
