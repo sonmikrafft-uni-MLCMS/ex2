@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="IOOygLNPzqygK7LMgbDT" name="Page-1">
-        <mxGraphModel dx="1344" dy="665" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+        <mxGraphModel dx="544" dy="269" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -191,11 +191,11 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="124" value="&lt;font color=&quot;#ffffff&quot;&gt;attributesSIRG&lt;/font&gt;" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;fontColor=#FF8000;" edge="1" parent="1" source="28" target="6">
-                    <mxGeometry x="-0.5558" y="28" relative="1" as="geometry">
+                    <mxGeometry x="-0.5591" y="28" relative="1" as="geometry">
                         <mxPoint x="306" y="470" as="sourcePoint"/>
                         <mxPoint x="466" y="470" as="targetPoint"/>
                         <Array as="points">
-                            <mxPoint x="410" y="500"/>
+                            <mxPoint x="410" y="510"/>
                             <mxPoint x="410" y="364"/>
                         </Array>
                         <mxPoint x="8" y="20" as="offset"/>
