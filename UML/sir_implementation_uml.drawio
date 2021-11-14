@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="IOOygLNPzqygK7LMgbDT" name="Page-1">
-        <mxGraphModel dx="1142" dy="565" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+        <mxGraphModel dx="1045" dy="565" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -10,19 +10,19 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="6" value="AttributesSIRG" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;swimlaneLine=1;strokeColor=#009900;" parent="1" vertex="1">
-                    <mxGeometry x="178" y="299" width="180" height="130" as="geometry"/>
+                    <mxGeometry x="180" y="299" width="192" height="130" as="geometry"/>
                 </mxCell>
                 <mxCell id="7" value="- infectionsAtStart: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="6" vertex="1">
-                    <mxGeometry y="26" width="180" height="26" as="geometry"/>
+                    <mxGeometry y="26" width="192" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="11" value="- infectionRate: double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="6" vertex="1">
-                    <mxGeometry y="52" width="180" height="26" as="geometry"/>
+                    <mxGeometry y="52" width="192" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="12" value="- infectionMaxDistance: double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="6" vertex="1">
-                    <mxGeometry y="78" width="180" height="26" as="geometry"/>
+                    <mxGeometry y="78" width="192" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="119" value="- isRatePerSecond: bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#FF8000;" parent="6" vertex="1">
-                    <mxGeometry y="104" width="180" height="26" as="geometry"/>
+                <mxCell id="119" value="- isInfectionRatePerSecond: bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#FF8000;" parent="6" vertex="1">
+                    <mxGeometry y="104" width="192" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="18" value="«enumeration»&lt;br&gt;&lt;b&gt;SIRType&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=50;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;strokeColor=#009900;" parent="1" vertex="1">
                     <mxGeometry x="180" y="477" width="140" height="128" as="geometry"/>
@@ -182,7 +182,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="124" value="&lt;font color=&quot;#000000&quot;&gt;attributesSIRG&lt;/font&gt;" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;fontColor=#FF8000;" parent="1" source="28" target="6" edge="1">
-                    <mxGeometry x="-0.5591" y="28" relative="1" as="geometry">
+                    <mxGeometry x="-0.5336" y="28" relative="1" as="geometry">
                         <mxPoint x="306" y="470" as="sourcePoint"/>
                         <mxPoint x="466" y="470" as="targetPoint"/>
                         <Array as="points">
