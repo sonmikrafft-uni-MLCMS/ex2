@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import os
 
 import dash
 import dash_html_components as html
@@ -9,14 +8,8 @@ from dash.exceptions import PreventUpdate
 
 from utils import *
 
-import scipy.sparse.linalg
-from sklearn.cluster import AgglomerativeClustering
-
-import plotly.express as px
-from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 
-import pymongo
 from dash.dependencies import Input, Output
 
 pdf_file_path = os.environ.get('PDF_FILES', '')
@@ -100,7 +93,8 @@ def update_figure(selected_values):
             figures.extend(scatter)
     if len(figures) > 0:
         fig = go.Figure(data=figures)
-        fig.update_layout(title='Susceptible / Infected / Removed')
+        # fig.update_layout(title='Susceptible / Infected / Removed')
+        fig.update_layout(title='Susceptible / Infected / Recovered')
         return fig
 
     raise PreventUpdate
