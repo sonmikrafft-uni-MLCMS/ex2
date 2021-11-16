@@ -183,17 +183,23 @@ public class SIRGroupModel extends AbstractGroupModel<SIRGroup> {
 	public void postLoop(final double simTimeInSec) {
 	}
 
+	/**
+	 * Check for infections and assign the correct SIRType value. Called after every iteration step.
+	 * @param 	simTimeInSec current time in simulation in seconds.
+	 */
 	@Override
 	public void update(final double simTimeInSec) {
-		// check the positions of all pedestrians and switch groups to INFECTED (or REMOVED).
-
+		// get pedestrians
 		DynamicElementContainer<Pedestrian> c = topography.getPedestrianDynamicElements();
 
-		// create a LinkedCellsGrid of Pedestrians
+		// create a LinkedCellsGrid of pedestrians
 		LinkedCellsGrid<Pedestrian> cellsElements = topography.getSpatialMap(Pedestrian.class);
 
+		// preliminary check
 		if (c.getElements().size() > 0) {
-			// per passed seconds since last call
+
+			// determine how many infection iterations we need to simulate,
+			// depending on full seconds passed since last call
 			int num_iterations = 1;
 			if (attributesSIRG.getIsInfectionRatePerSecond()) {
 				double delta = simTimeInSec - lastSimTimeInSec + simTimeInSecRest;
@@ -201,15 +207,22 @@ public class SIRGroupModel extends AbstractGroupModel<SIRGroup> {
 				simTimeInSecRest = delta - (int) delta;
 				lastSimTimeInSec = simTimeInSec;
 			}
+
+			// run infection iterations
 			for (int i = 0; i < num_iterations; i++) {
 				for(Pedestrian p : c.getElements()) {
-					// get Pedestrians within a certain radius
+
+					// get pedestrians within a certain radius
 					List<Pedestrian> p_neighbors = cellsElements.getObjects(p.getPosition(), attributesSIRG.getInfectionMaxDistance());
 
-					// and only loop over neighbor pedestrians
+					// and only loop over neighboring pedestrians
 					for (Pedestrian p_neighbor : p_neighbors) {
+
+						// do nothing if same pedestrians or if neighbor is not infected
 						if (p == p_neighbor || getGroup(p_neighbor).getID() != SIRType.ID_INFECTED.ordinal())
 							continue;
+
+						// check for infection and update group if becoming infected
 						if (this.random.nextDouble() < attributesSIRG.getInfectionRate()) {
 							SIRGroup g = getGroup(p);
 							if (g.getID() == SIRType.ID_SUSCEPTIBLE.ordinal()) {
