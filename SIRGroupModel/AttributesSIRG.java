@@ -13,10 +13,17 @@ public class AttributesSIRG extends Attributes {
 	private double infectionRate = 0.01;
 	private double infectionMaxDistance = 1;
 
-	// if false, then infectionRate is interpreted as per simulated step.
-	// then it is coupled with the `simTimeStepLength`.
-	// set this to true to interpret the infectionRate as per second.
+	/**
+	 * if false, then infectionRate is interpreted as per simulated step.
+	 * then it is coupled with the `simTimeStepLength`.
+	 * set this to true to interpret the infectionRate as per second.
+	 */
 	private boolean isInfectionRatePerSecond = false;
+
+	/**
+	 * recoveryRate: probability for an infective person to become recovered at every time step
+	 */
+	private double recoveryRate = 0.01;
 
 	public int getInfectionsAtStart() { return infectionsAtStart; }
 
@@ -26,6 +33,15 @@ public class AttributesSIRG extends Attributes {
 
 	public double getInfectionMaxDistance() {
 		return infectionMaxDistance;
+	}
+
+	/**
+	 * getRecoveryRate
+	 * Getter method for recoveryRate
+	 * @return	recoveryRate
+	 */
+	public double getRecoveryRate() {
+		return recoveryRate;
 	}
 
 	public boolean getIsInfectionRatePerSecond() { return isInfectionRatePerSecond; }

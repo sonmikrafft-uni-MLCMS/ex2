@@ -185,7 +185,7 @@ public class SIRGroupModel extends AbstractGroupModel<SIRGroup> {
 
 	/**
 	 * Check for infections and assign the correct SIRType value. Called after every iteration step.
-	 * @param 	simTimeInSec current time in simulation in seconds.
+	 * @param	simTimeInSec current time in simulation in seconds.
 	 */
 	@Override
 	public void update(final double simTimeInSec) {
@@ -214,6 +214,17 @@ public class SIRGroupModel extends AbstractGroupModel<SIRGroup> {
 
 					// get pedestrians within a certain radius
 					List<Pedestrian> p_neighbors = cellsElements.getObjects(p.getPosition(), attributesSIRG.getInfectionMaxDistance());
+
+					/*
+					* decide if pedestrian will recover based on recoveryRate at every time step
+					*/
+					if (this.random.nextDouble() < attributesSIRG.getRecoveryRate()) {
+						SIRGroup g = getGroup(p);
+						if (g.getID() == SIRType.ID_INFECTED.ordinal()) {
+							elementRemoved(p);
+							assignToGroup(p, SIRType.ID_RECOVERED.ordinal());
+						}
+					}
 
 					// and only loop over neighboring pedestrians
 					for (Pedestrian p_neighbor : p_neighbors) {
