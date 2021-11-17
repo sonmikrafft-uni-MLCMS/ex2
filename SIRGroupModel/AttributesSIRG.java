@@ -21,7 +21,7 @@ public class AttributesSIRG extends Attributes {
 	private boolean isInfectionRatePerSecond = false;
 
 	/**
-	 recoveryRate: probability for an infective person to become recovered at every time step
+	 * recoveryRate: probability for an infective person to become recovered at every time step
 	 */
 	private double recoveryRate = 0.01;
 
@@ -38,7 +38,7 @@ public class AttributesSIRG extends Attributes {
 	/**
 	 * getRecoveryRate
 	 * Getter method for recoveryRate
-	 * @return recoveryRate
+	 * @return	recoveryRate
 	 */
 	public double getRecoveryRate() {
 		return recoveryRate;
